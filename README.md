@@ -29,6 +29,11 @@ Real-time animation at 60 frames per second
 Particles bounce when hitting the cube boundaries (-5 to 5 on each axis)
 
 
+Add/Update
+
+*Added create_sphere function for modular creation of particles with configurable number, radius and color. This keeps the orginal movement and reflection behavior unchanged
+
+
 
 
 
@@ -40,6 +45,7 @@ License
 
 
 This project is open-source and free to use.
+
 
 
 
