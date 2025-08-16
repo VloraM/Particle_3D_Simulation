@@ -3,24 +3,30 @@ import random
 
 particles = []
 
-# Krijojmë 70 grimca, 50 të kuqe dhe 20 të gjelbra
-for _ in range(50):
+def create_sphere(position, radius, color_value):
     p = sphere(
-        pos=vector(random.uniform(-5, 5), random.uniform(-5, 5), random.uniform(-5, 5)),
-        radius=0.2,
-        color=color.red
+        pos=vector(*position),
+        radius=radius,
+        color=color_value
     )
-    p.velocity = vector(random.uniform(-0.1, 0.1), random.uniform(-0.1, 0.1), random.uniform(-0.1, 0.1))
+    p.velocity = vector(
+        random.uniform(-0.1, 0.1),
+        random.uniform(-0.1, 0.1),
+        random.uniform(-0.1, 0.1)
+    )
     particles.append(p)
+    return p
 
-for _ in range(20):
-    p = sphere(
-        pos=vector(random.uniform(-5, 5), random.uniform(-5, 5), random.uniform(-5, 5)),
-        radius=0.2,
-        color=color.green
-    )
-    p.velocity = vector(random.uniform(-0.1, 0.1), random.uniform(-0.1, 0.1), random.uniform(-0.1, 0.1))
-    particles.append(p)
+def create_spheres(n, radius, color_value):
+    for _ in range(n):
+        create_sphere(
+            (random.uniform(-5, 5), random.uniform(-5, 5), random.uniform(-5, 5)),
+            radius,
+            color_value
+        )
+
+create_spheres(50, 0.2, color.red)
+create_spheres(20, 0.2, color.green)
 
 while True:
     rate(60)
